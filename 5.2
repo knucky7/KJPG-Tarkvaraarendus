@@ -1,0 +1,27 @@
+def failist_sonastik(fail):
+    fail = open(fail, encoding="UTF-8")
+    tabel = []
+    sonastik = {}
+    for osa in fail:
+        osad = osa.split()
+        sonastik[osad[0]] = osad[1]
+        tabel.append(osad)
+    return sonastik
+def tahised_nimedeks(tahised, sonastik):
+    tabel2 = []
+    for tahis in tahised:
+        if tahis in sonastik:
+            tabel2.append(sonastik[tahis])
+        else:
+            tabel2.append(None)
+    return tabel2
+
+fail = input("Sisesta andmebaasi nimi: ")
+ületajad = input("Piiriületajad: ")
+ületajad2 = ületajad.split()
+tuvastus = tahised_nimedeks(ületajad2, failist_sonastik(fail))
+for obj in tuvastus:
+    if obj == None:
+        print("Tundmatu maa")
+    else:
+        print(obj)
