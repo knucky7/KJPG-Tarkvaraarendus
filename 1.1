@@ -1,0 +1,25 @@
+fail = input("Sisestage failinimi: ")
+andmed = open(fail, encoding="UTF-8")
+alammõõt = int(input("Sisestage alammõõt: "))
+fti = float(input("Sisestage Fultoni tüsedusindeks: "))
+
+def  kala_kaal(pikkus, fti):
+    kaal = pikkus ** 3 * fti / 100
+    kaal2 = round (kaal)
+    return kaal2
+
+kalad = []
+for rida in andmed:
+    pikkus = int(rida)
+    kalad += [float(rida)]
+    if pikkus < alammõõt:
+        print("Kala lasti vette tagasi")
+    else:
+        print("Püütud kala kaaluga " + str(kala_kaal(pikkus, fti)) + " grammi.")
+
+
+ss = max(kalad) ** 3 * fti / 100
+sss = round(ss)
+ssss = sss / 1000
+print("Kõige suurem  püütud kala oli: " + str(ssss) + " kg")
+
