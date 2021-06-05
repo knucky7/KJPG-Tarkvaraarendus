@@ -1,0 +1,11 @@
+def keskmised(hinnete_tabel):
+    tabel = []
+    for ained in hinnete_tabel:
+        hinded = ained[1:]
+        keskmised = round(sum(hinded) / len(hinded), 1)
+        print(str(ained[0]) + ", " + str(keskmised))
+        uus_t = []
+        uus_t.append(ained[0])
+        uus_t.append(keskmised)
+        tabel.append(uus_t)
+    return tabel
