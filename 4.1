@@ -1,0 +1,29 @@
+fail = open("hinded.csv", encoding="UTF-8")
+
+tabel = []
+hinded = []
+keskmised = []
+uus_tabel = []
+
+for rida in fail:
+    rida = rida.strip()
+    osa = rida.split(",")
+    tabel.append(osa)
+
+for osa in tabel:
+    aine = osa[0]
+    hinded.append(osa[1:])
+    uus_tabel.append(aine)
+
+for hinne in hinded:
+    hinne[:] = list(map(int, hinne))
+    
+for keskmine in hinded:
+    hindeid = sum(keskmine)
+    hindeid2 = len(keskmine)
+    kesk = hindeid/hindeid2
+    kesk2 = round(kesk, 1)
+    keskmised.append(kesk2)
+
+for i in range(len(uus_tabel)):
+    print(uus_tabel[i] + ":" + str(keskmised[i]))
